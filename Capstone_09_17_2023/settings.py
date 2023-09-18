@@ -59,7 +59,7 @@ ROOT_URLCONF = 'Capstone_09_17_2023.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['Littlelemon_Restaurant/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
