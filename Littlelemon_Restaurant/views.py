@@ -18,4 +18,9 @@ from django.views.generic.base import TemplateView
 
 # Create your views here.
 def H(request):
+
+
+
+
+    
     return HttpResponse('Hello world')
