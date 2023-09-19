@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
     'djoser',
+    'schema_graph',
 
 ]
 
@@ -158,3 +159,4 @@ REST_FRAMEWORK = {
 DJOSER={
     "USER_ID_FIELD":"username",
 }
+
