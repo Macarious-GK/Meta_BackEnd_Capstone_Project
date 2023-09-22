@@ -5,6 +5,9 @@ from . import views
 urlpatterns = [
     path('1/',H,name = 'fifa'),
     path('', views.index, name='home'),
+    path('menu/',MenuItemView,name='MenuItems'),
+    path('menu/<int:pk>/',SingleMenuItemView.as_view(),name='MenuItems'),
+
     
 
 ]
