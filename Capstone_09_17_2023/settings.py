@@ -38,13 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Littlelemon_Restaurant',
-    'rest_framework.authtoken',
     'rest_framework',
+    'rest_framework.authtoken',
     'djoser',
-    'schema_graph',
 
 ]
-
+    
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -79,12 +78,26 @@ WSGI_APPLICATION = 'Capstone_09_17_2023.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+DATABASES = {   
+    'default': {   
+        'ENGINE': 'django.db.backends.mysql',   
+        'NAME': 'name of the database',   
+        'USER': 'root',   
+        'PASSWORD': '123456789',   
+        'HOST': '127.0.0.1',   
+        'PORT': '3306',   
+        # 'OPTIONS': {  
+	    # 'read_defalut_file': 'path/to/file.c',
+        #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"   
+        # }   
+    }   
+} 
 
 
 # Password validation

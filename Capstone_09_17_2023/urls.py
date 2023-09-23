@@ -20,16 +20,13 @@ from Littlelemon_Restaurant import views
 from django.urls import path, include
 
 
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'tables', views.BookingViewSet)
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/',include('djoser.urls')),
-    path('auth-token/',include('djoser.urls.authtoken')),
-    path('',include('Littlelemon_Restaurant.urls')),
-    path('restaurant/booking/', include(router.urls)),
+    path('auth/',include('djoser.urls.authtoken')),
+    path('restaurant/',include('Littlelemon_Restaurant.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

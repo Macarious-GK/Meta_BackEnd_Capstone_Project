@@ -26,6 +26,7 @@ def index(request):
 
 
 @api_view(['GET','POST'])
+@permission_classes([IsAuthenticated])
 def MenuItemView(request):
     if request.method == 'GET':
         menuitems = Menu.objects.all()
@@ -37,13 +38,14 @@ def MenuItemView(request):
             menuserializer.save()
             return Response({'message':menuserializer.data},201)
         else:
-            return Response({'message':menuserializer.errors},400)
+            return Response({'message':menuserializer.errors},404)
     else:
         return Response({'message':'Bad Request'},400)
     
 
 
 class SingleMenuItemView(generics.RetrieveUpdateAPIView,generics.DestroyAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Menu.objects.all()
     serializer_class = menuSerializer
     def delete(self, request, *args, **kwargs):
@@ -60,11 +62,13 @@ class SingleMenuItemView(generics.RetrieveUpdateAPIView,generics.DestroyAPIView)
     
 
 class BookingViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
+
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
-   queryset = User.objects.all()
-   serializer_class = UserSerializer
-   permission_classes = [IsAuthenticated] 
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated] 
